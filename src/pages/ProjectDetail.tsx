@@ -1,9 +1,15 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, Navigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { projects } from "@/data/projects";
 
 const ProjectDetail = () => {
   const { id } = useParams();
+  const project = projects.find((p) => p.id === Number(id));
+
+  if (!project) {
+    return <Navigate to="/" replace />;
+  }
 
   return (
     <div className="min-h-screen bg-background">
@@ -23,22 +29,21 @@ const ProjectDetail = () => {
           {/* Título do Projeto */}
           <div className="mb-8 animate-fade-in">
             <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
-              Nome do Projeto #{id}
+              {project.title}
             </h1>
             <p className="text-lg text-muted-foreground">
-              Categoria do Projeto
+              {project.category}
             </p>
           </div>
 
-          {/* Imagem Principal Placeholder */}
+          {/* Imagem Principal */}
           <div className="mb-12 animate-scale-in">
             <div className="aspect-video bg-muted rounded-lg overflow-hidden">
-              <div className="w-full h-full flex items-center justify-center text-muted-foreground">
-                <div className="text-center">
-                  <div className="text-6xl mb-2">🖼️</div>
-                  <p>Imagem Principal</p>
-                </div>
-              </div>
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
 
@@ -48,12 +53,9 @@ const ProjectDetail = () => {
               Sobre o Projeto
             </h2>
             <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-              </p>
-              <p>
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
+              {project.description.split('\n\n').map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
             </div>
           </div>
 
@@ -63,17 +65,16 @@ const ProjectDetail = () => {
               Galeria do Projeto
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {[1, 2, 3, 4].map((index) => (
+              {project.gallery.map((image, index) => (
                 <div
                   key={index}
                   className="aspect-video bg-muted rounded-lg overflow-hidden"
                 >
-                  <div className="w-full h-full flex items-center justify-center text-muted-foreground">
-                    <div className="text-center">
-                      <div className="text-4xl mb-2">🖼️</div>
-                      <p>Imagem {index}</p>
-                    </div>
-                  </div>
+                  <img
+                    src={image}
+                    alt={`${project.title} - Imagem ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               ))}
             </div>
@@ -87,19 +88,19 @@ const ProjectDetail = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-muted-foreground">
               <div>
                 <h3 className="font-semibold text-foreground mb-2">Cliente</h3>
-                <p>Nome do Cliente</p>
+                <p>{project.client}</p>
               </div>
               <div>
                 <h3 className="font-semibold text-foreground mb-2">Ano</h3>
-                <p>2024</p>
+                <p>{project.year}</p>
               </div>
               <div>
                 <h3 className="font-semibold text-foreground mb-2">Serviços</h3>
-                <p>Branding, Design Gráfico, Editorial</p>
+                <p>{project.services}</p>
               </div>
               <div>
                 <h3 className="font-semibold text-foreground mb-2">Duração</h3>
-                <p>3 meses</p>
+                <p>{project.duration}</p>
               </div>
             </div>
           </div>

@@ -1,47 +1,5 @@
 import { Link } from "react-router-dom";
-import projectEditorial from "@/assets/project-editorial.jpg";
-import projectLogos from "@/assets/project-logos.jpg";
-import projectBranding from "@/assets/project-branding.jpg";
-import projectPackaging from "@/assets/project-packaging.jpg";
-
-const projects = [
-  {
-    id: 1,
-    title: "Revista Editorial",
-    category: "Editorial",
-    image: projectEditorial,
-  },
-  {
-    id: 2,
-    title: "Identidades Visuais",
-    category: "Logos",
-    image: projectLogos,
-  },
-  {
-    id: 3,
-    title: "Branding Completo",
-    category: "Branding",
-    image: projectBranding,
-  },
-  {
-    id: 4,
-    title: "Design de Embalagem",
-    category: "Packaging",
-    image: projectPackaging,
-  },
-  {
-    id: 5,
-    title: "Identidade Corporativa",
-    category: "Branding",
-    image: projectBranding,
-  },
-  {
-    id: 6,
-    title: "Catálogo Premium",
-    category: "Editorial",
-    image: projectEditorial,
-  },
-];
+import { projects } from "@/data/projects";
 
 const Portfolio = () => {
   return (
