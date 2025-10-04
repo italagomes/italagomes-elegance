@@ -1,92 +1,59 @@
-import projectEditorial from "@/assets/project-editorial.jpg";
-import projectLogos from "@/assets/project-logos.jpg";
-import projectBranding from "@/assets/project-branding.jpg";
-import projectPackaging from "@/assets/project-packaging.jpg";
+import galleryFairy from "@/assets/gallery-fairy.jpg";
+import galleryNestle from "@/assets/gallery-nestle.jpg";
+import galleryPaint from "@/assets/gallery-paint.jpg";
+import galleryPascoa1 from "@/assets/gallery-pascoa1.png";
+import galleryPascoa2 from "@/assets/gallery-pascoa2.png";
+import galleryChipKidd from "@/assets/gallery-chipkidd.png";
+import galleryRockDay from "@/assets/gallery-rockday.png";
 
-export interface Project {
+export interface GalleryImage {
   id: number;
+  image: string;
   title: string;
   category: string;
-  image: string;
-  description: string;
-  client: string;
-  year: string;
-  services: string;
-  duration: string;
-  gallery: string[];
 }
 
-export const projects: Project[] = [
+export const galleryImages: GalleryImage[] = [
   {
     id: 1,
-    title: "Revista Editorial",
+    image: galleryFairy,
+    title: "Fairy Charm - Coloring Book",
     category: "Editorial",
-    image: projectEditorial,
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    client: "Cliente Editorial",
-    year: "2024",
-    services: "Design Editorial, Layout, Diagramação",
-    duration: "3 meses",
-    gallery: [projectEditorial, projectEditorial, projectEditorial, projectEditorial],
   },
   {
     id: 2,
-    title: "Identidades Visuais",
-    category: "Logos",
-    image: projectLogos,
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    client: "Cliente Logos",
-    year: "2024",
-    services: "Criação de Logo, Identidade Visual",
-    duration: "2 meses",
-    gallery: [projectLogos, projectLogos, projectLogos, projectLogos],
+    image: galleryNestle,
+    title: "Nestlé Alpino Premium",
+    category: "Packaging",
   },
   {
     id: 3,
-    title: "Branding Completo",
-    category: "Branding",
-    image: projectBranding,
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    client: "Cliente Branding",
-    year: "2024",
-    services: "Branding, Identidade Visual, Manual de Marca",
-    duration: "4 meses",
-    gallery: [projectBranding, projectBranding, projectBranding, projectBranding],
+    image: galleryPaint,
+    title: "Paint it Your Way",
+    category: "Editorial",
   },
   {
     id: 4,
-    title: "Design de Embalagem",
-    category: "Packaging",
-    image: projectPackaging,
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    client: "Cliente Packaging",
-    year: "2024",
-    services: "Design de Embalagem, Mockups, Prototipagem",
-    duration: "2 meses",
-    gallery: [projectPackaging, projectPackaging, projectPackaging, projectPackaging],
+    image: galleryPascoa1,
+    title: "Páscoa para Todos - Curso",
+    category: "Social Media",
   },
   {
     id: 5,
-    title: "Identidade Corporativa",
-    category: "Branding",
-    image: projectBranding,
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    client: "Cliente Corporativo",
-    year: "2023",
-    services: "Branding Corporativo, Papelaria, Comunicação Visual",
-    duration: "5 meses",
-    gallery: [projectBranding, projectBranding, projectBranding, projectBranding],
+    image: galleryPascoa2,
+    title: "Páscoa para Todos - Inscrições",
+    category: "Social Media",
   },
   {
     id: 6,
-    title: "Catálogo Premium",
+    image: galleryChipKidd,
+    title: "Chip Kidd - Design de Capa",
     category: "Editorial",
-    image: projectEditorial,
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    client: "Cliente Premium",
-    year: "2023",
-    services: "Design Editorial, Fotografia, Produção Gráfica",
-    duration: "3 meses",
-    gallery: [projectEditorial, projectEditorial, projectEditorial, projectEditorial],
+  },
+  {
+    id: 7,
+    image: galleryRockDay,
+    title: "Rock Day - Evento",
+    category: "Social Media",
   },
 ];
