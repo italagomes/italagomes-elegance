@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import projectEditorial from "@/assets/project-editorial.jpg";
 import projectLogos from "@/assets/project-logos.jpg";
 import projectBranding from "@/assets/project-branding.jpg";
@@ -57,9 +58,10 @@ const Portfolio = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <div
+            <Link
               key={project.id}
-              className="group relative overflow-hidden rounded-lg shadow-soft hover:shadow-elegant transition-smooth animate-scale-in cursor-pointer"
+              to={`/projeto/${project.id}`}
+              className="group relative overflow-hidden rounded-lg shadow-soft hover:shadow-elegant transition-smooth animate-scale-in cursor-pointer block"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="aspect-video overflow-hidden">
@@ -77,7 +79,7 @@ const Portfolio = () => {
                   {project.title}
                 </h3>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
